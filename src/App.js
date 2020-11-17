@@ -27,6 +27,7 @@ export default class App extends Component {
     getAllGiphysBySearch(this.state.searchString)
       .then((res) =>  {
         console.log('gyphs', res);
+        this.setState({giphys:res.data.data});
       })
       .catch((error) => {
         console.log("API Error: ", error);
@@ -43,7 +44,7 @@ export default class App extends Component {
           searchString={this.state.searchString}
           onSubmit={this.handleSubmit} 
           onChange={this.handleSearchChange}/>
-        <Giphys />
+        <Giphys giphys={this.state.giphys} />
       </>
     )
   }

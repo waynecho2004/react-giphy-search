@@ -5,8 +5,7 @@ export default class Giphy extends Component {
     return (
       <>
         <div>
-            <label>Title</label>
-            <img src="img.jpg" alt="Hello Kitty" width="250" height="300"></img>
+            <img src={this.props.url} alt={this.props.title} width="250" height="300" />
         </div>
       </>
     )
