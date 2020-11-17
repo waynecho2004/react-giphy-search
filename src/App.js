@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Search from './Search'
 import Giphys from './Giphys'
+import { getAllGiphysBySearch } from './giphyDataApi'
 
 export default class App extends Component {
 
@@ -21,6 +22,16 @@ export default class App extends Component {
 
   handleSubmit = (e) => {
     console.log('search string entered: ' + this.state.searchString);
+
+    // get search result from external api
+    getAllGiphysBySearch(this.state.searchString)
+      .then((res) =>  {
+        console.log('gyphs', res);
+      })
+      .catch((error) => {
+        console.log("API Error: ", error);
+      })
+
     e.preventDefault()
   }
 
