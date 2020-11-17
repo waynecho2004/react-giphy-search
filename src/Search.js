@@ -4,9 +4,12 @@ export default class Search extends Component {
   render() {
     return (
       <>
-        <form>
-          <input type='text' id="searchStr"></input>
-          <button>Get Git</button>
+        <form onSubmit={this.props.onSubmit}>
+          <input type='text' 
+                 value={this.props.searchString}
+                 onChange={this.props.onChange}
+                 />
+          <button type="submit">Get Git</button>
         </form>
       </>
     )
